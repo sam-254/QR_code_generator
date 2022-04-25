@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+<h2 class="pt-5 pl-4">User Input</h2>
+  <div class="container">
+    <div class="row">
+      {% if user.is_authenticated %}
+      <form class="col-6" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+                <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      {% else %}
+        {% for field in form %}
+          {{field.username}}
+          {{field.lastname}}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+{% endblock %}

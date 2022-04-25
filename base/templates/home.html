@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+{% for user in users %}
+<div class="container">
+    <div class="row">
+
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {% if user.qr_img %}
+                        <img src="{{ user.qr_img.url }}" class="img-fluid rounded-start" alt="...">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">User Info</h5>
+                        <p class="card-text">Firstname-{{ user.firstname }}</p>
+                        <p class="card-text">Lastname-{{ user.lastname }}</p>
+                        <p class="card-text">Email-{{ user.email }}</p>
+                        <p class="card-text">Phone-{{ user.phone }}</p>
+                        <p class="card-text">Address-{{ user.address}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+{%endfor%}
+{% endblock %}
