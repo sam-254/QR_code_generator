@@ -1,1 +1,1 @@
-web: gunicorn qrcode_generator.wsgi --log-file
+web: python manage.py migrate && gunicorn qrcode_generator.wsgi --log-file
