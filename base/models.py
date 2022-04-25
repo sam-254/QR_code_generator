@@ -37,7 +37,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = PhoneNumberField(max_length=68, blank=True, null=True)
     address = models.CharField(max_length=50, blank=True, null=True)
     password = models.CharField(max_length=25)
-    qr_img = models.ImageField(upload_to='media', blank=True)
+    qr_img = models.ImageField(upload_to='static/media', blank=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
